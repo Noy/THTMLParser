@@ -1,5 +1,9 @@
-# tSQL
-Basic HTML parser written in go using string concat.
+# THMTL
+
+### Basic HTML parser written in go using string concat.
+#### Please note, of course it can become much easier and less repeating
+#### by making something like `Tag(name string, etc...)` but wanted to keep
+### it clear with individual functions for each HTML tag
 
 ### Example
 
