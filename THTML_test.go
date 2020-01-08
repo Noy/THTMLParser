@@ -19,8 +19,8 @@ func TestHTMLParser_Div(t *testing.T) {
 func TestHTMLParser_Table(t *testing.T) {
 	table := template.HTML("<table><thead><tr><th>Header 1</th><th>Header 2</th></tr></thead><tbody><tr class=\"row1\">" +
 		"<td>Test 1</td><td>Test 2</td></tr></tbody></table>")
-	tHTMLTable := NewHTMLParser().Table("", "").THead().Tr("", "").Th("", "", "Header 1").
-		Close("th").Th("", "", "Header 2").Close("tr").Close("thead").TBody().Tr("row1", "").
+	tHTMLTable := NewHTMLParser().Table("", "").THead("", "").Tr("", "").Th("", "", "Header 1").
+		Close("th").Th("", "", "Header 2").Close("th").Close("tr").Close("thead").TBody().Tr("row1", "").
 		Td("", "", "Test 1").Close("td").Td("", "", "Test 2").Close("td").Close("tr").
 		Close("tbody").Close("table")
 	if table == tHTMLTable.Text {

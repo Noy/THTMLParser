@@ -1,29 +1,27 @@
 package thtml
 
-import "html/template"
-
 func (p *HTMLParser) Table(class, id string) *HTMLParser {
-	p.Text += template.HTML("<table class=\"" + class + "\" id=\"" + id + "\">")
+	p.generateTag("table", class, id, "")
 	return p
 }
 
-func (p *HTMLParser) THead() *HTMLParser {
-	p.Text += "<thead>"
+func (p *HTMLParser) THead(class, id string) *HTMLParser {
+	p.generateTag("thead", class, id, "")
 	return p
 }
 
 func (p *HTMLParser) Tr(class, id string) *HTMLParser {
-	p.Text += template.HTML("<tr class=\"" + class + "\" id=\"" + id + "\">")
+	p.generateTag("tr", class, id, "")
 	return p
 }
 
 func (p *HTMLParser) Td(class, id, text string) *HTMLParser {
-	p.Text += template.HTML("<td class=\"" + class + "\" id=\"" + id + "\">" + text)
+	p.generateTag("td", class, id, text)
 	return p
 }
 
 func (p *HTMLParser) Th(class, id, text string) *HTMLParser {
-	p.Text += template.HTML("<td class=\"" + class + "\" id=\"" + id + "\">" + text)
+	p.generateTag("th", class, id, text)
 	return p
 }
 
