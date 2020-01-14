@@ -29,3 +29,14 @@ func TestHTMLParser_Table(t *testing.T) {
 		t.Error("Gone wrong, check why." + tHTMLTable.Text)
 	}
 }
+
+func TestHTMLParser_Next(t *testing.T) {
+	html := template.HTML("<h1><a target=\"_blank\" href=\"test\">Yep</a></h1>Yes")
+	tHtml := NewHTMLParser().H1("", "", "").A("test", "Yep", "_blank").
+		Close("a").Close("h1").Next("Yes")
+	if html == tHtml.Text {
+		t.Log("This worked: " + tHtml.Text)
+	} else {
+		t.Error("Gone wrong, check why."+tHtml.Text, "\n", html)
+	}
+}
